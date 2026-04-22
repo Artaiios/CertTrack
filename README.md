@@ -102,9 +102,7 @@ certtrack/
 
 ## Installation
 
-### IONOS shared hosting (the target)
-
-1. Set the PHP version to **8.0 or higher** in the IONOS control panel (Hosting → PHP version).
+1. Set the PHP version to **8.0 or higher** in the control panel (Hosting → PHP version).
 2. Upload the project via FTP to your web root — **without** `includes/db_credentials.php`.
 3. Copy `includes/db_credentials.example.php` to `includes/db_credentials.php` and fill in real DB and SMTP credentials. Generate a long random `app_secret` (64+ random chars) — once set, do not change it, or all existing magic links and IP hashes become invalid.
 4. Download PHPMailer (the three files `PHPMailer.php`, `SMTP.php`, `Exception.php` from [PHPMailer releases](https://github.com/PHPMailer/PHPMailer/releases)) and place them under `includes/PHPMailer/`. Without this, CertTrack falls back to PHP's `mail()` — which usually still works on IONOS but is less reliable.
@@ -175,8 +173,6 @@ Application constants (XP rates, upload limits, magic-link TTL) live in `include
 This is a personal project, but PRs are welcome if you're also preparing for a certification and want to scratch an itch. Please:
 
 - Keep the **no-framework, no-build-step** constraint.
-- Follow the conventions documented in `CLAUDE.md` (PDO prepared statements only, CSRF on all POSTs, `e()` for output escaping, 4-space indentation, no closing `?>` in pure-PHP files).
-- Update `CHANGELOG.md` in the same human-written tone — no "v1.2.3 — Added X" bullet lists.
 
 ## License
 
