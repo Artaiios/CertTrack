@@ -1,0 +1,20 @@
+# uploads/ wird ausschliesslich ueber evidence.php gelesen.
+# Direkter HTTP-Zugriff ist verboten — readfile() vom PHP-Skript funktioniert weiter.
+
+Require all denied
+
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+    php_flag engine off
+</IfModule>
+
+<FilesMatch "\.(php|phtml|pl|py|jsp|asp|sh|cgi)$">
+    Require all denied
+</FilesMatch>
+
+Options -ExecCGI -Indexes

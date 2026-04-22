@@ -1,0 +1,21 @@
+# CertTrack — Apache-Hardening fuer IONOS Shared Hosting
+
+Options -Indexes
+
+<FilesMatch "(^\.|\.md$|composer\.|package\.|\.example\.php$)">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Direkten Zugriff auf includes/ blocken
+    RewriteRule ^includes/ - [F,L]
+    # Direkten Zugriff auf db_credentials* zur Sicherheit zusaetzlich blocken
+    RewriteRule (^|/)db_credentials.*\.php$ - [F,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "same-origin"
+</IfModule>

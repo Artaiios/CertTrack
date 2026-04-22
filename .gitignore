@@ -1,0 +1,26 @@
+# --- Secrets (NEVER commit) ---
+includes/db_credentials.php
+
+# --- PHPMailer vendored manually on the server ---
+includes/PHPMailer/
+
+# --- User-uploaded content ---
+uploads/cpe/*/
+!uploads/cpe/.gitkeep
+!uploads/cpe/.htaccess
+
+# --- OS / editor noise ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# --- Logs & local artifacts ---
+*.log
+.claude/
+
+# --- Local exports / test output ---
+*.zip
+*.bak
